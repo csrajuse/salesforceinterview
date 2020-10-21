@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Accounts</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+
+        <th>Account Name</th>
+        <th>Account Type</th>
+        <th>Account Phone</th>
+        <th>Account ParentId</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accounts; let i = index">
+        <td>{{account.name}}</td>
+        <td>{{account.type}}</td>
+        <td>{{account.phone}}</td>
+        <td>{{account.parentId}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

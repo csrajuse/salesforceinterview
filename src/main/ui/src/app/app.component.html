@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 mrgnbtm">
+      <h2>Create Account</h2>
+      <form [formGroup]="
+      accountForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="accountNameInput">Name</label>
+            <input type="text" class="form-control" formControlName="name" id="accountNameInput" aria-describedby="emailHelp" placeholder="Name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="accountHolderFirstName">Type</label>
+            <input type="text" class="form-control" formControlName="type" id="accountHolderFirstName" aria-describedby="emailHelp" placeholder="Type">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="accountHolderLastName">phone</label>
+            <input type="text" class="form-control" formControlName="phone" id="accountHolderLastName" aria-describedby="emailHelp" placeholder="Phone">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="parentId">Parent Id</label>
+            <input type="text" class="form-control" formControlName="parentId" id="parentId" aria-describedby="emailHelp" placeholder="Parent Id">
+          </div>
+        </div>
+        <button type="submit" [disabled]="!accountForm.valid" class="btn btn-danger">Create</button>
+      </form>
+    </div>
+    <div class="col-md-4 mrgnbtm">
+      <app-display-board
+       [accountCount]="accountCount"
+       (getAccountsEvent)="getAllAccounts()"
+      >
+      </app-display-board>
+    </div>
+  </div>
+</div>
+<div class="mrgnbtm">
+  <app-accounts *ngIf="accounts.length !== 0" [accounts]="accounts"></app-accounts>
+</div>
